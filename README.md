@@ -20,6 +20,7 @@ The following parameters can be used with the executable
 | -t,--token \<arg> | Talend Cloud Token
 | -te,--tokenenv \<arg> | Talend Cloud Token in Environment Variable
 | -w,--wait | Will block any other commands from executing until Talend job is completed
+| -e,--environment \<arg> | The environment the job is in. If not used name will be `default`
 | -v,--version | Product Version
 
 
