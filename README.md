@@ -21,6 +21,7 @@ The following parameters can be used with the executable
 | -te,--tokenenv \<arg> | Talend Cloud Token in Environment Variable
 | -w,--wait | Will block any other commands from executing until Talend job is completed
 | -e,--environment \<arg> | The environment the job is in. If not used name will be `default`
+| -cv,--contextvariables \<arg> | Context Variables to pass. EX: name1=value1;name2=value2
 | -v,--version | Product Version
 
 
