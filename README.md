@@ -1,4 +1,4 @@
-# Talend Command Line Interface #
+# Talend HVR Command Line Interface #
 ## Version: 1.3.0 ##
 ### Author: Thomas Bennett <tbennett@talend.com> ###
 
@@ -15,13 +15,14 @@ The following parameters can be used with the executable
 | Command  | Description |
 | --- | --- |
 | -h,--help  | show help
-| -j,--job \<arg> | The Talend Cloud Job Name to Execute
 | -r,--region \<arg> | Talend Cloud Region [AWS_USA_EAST, AWS_EMEA, AWS_APAC, AZURE_USA_WEST]
 | -t,--token \<arg> | Talend Cloud Token
 | -te,--tokenenv \<arg> | Talend Cloud Token in Environment Variable
 | -w,--wait | Will block any other commands from executing until Talend job is completed
 | -e,--environment \<arg> | The environment the job is in. If not used name will be `default`
 | -cv,--contextvariables \<arg> | Context Variables to pass. EX: name1=value1;name2=value2
+| -hm,--hvrmanifest \<arg> | Directory path to the HVR Manifest files
+| -tm,--tlndmanifest \<arg> | File path to the Talend Manifest file
 | -v,--version | Product Version
 
 
@@ -34,6 +35,34 @@ and log4j.properties was placed in the <$HVR_HOME>\lib\agent directory allow wit
   tcli -t <TOKEN> -r AWS_USA_EAST -j %4% -w
  )`
 
+# HVR Manifest Example
+`
+{
+    "channel": "hvrdemo",
+    "cycle_begin": "2020-02-04T19:39:56Z",
+    "cycle_end": "2020-02-04T19:39:57Z",
+    "initial_load": false,
+    "integ_loc": {
+        "name": "tgt"
+    },
+    "tables": [
+        "dm51_order",
+        "dm51_product",
+        "dm51_test"
+    ]
+}
+`
+
+# Talend Manifest Example
+The key is the table being replicated and the value is the Talend Cloud job to be executed
+`
+{
+  "tables": [
+    {"dm51_order" : "hvr_demo"},
+    {"aaa" : "job1"}
+  ]
+}
+`
 ### HVR Agent Plugin
 In HVR we use the Agent Plugin to call our script. In this example we named the script `callTalendCloud.bat`
 
