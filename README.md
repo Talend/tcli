@@ -26,22 +26,11 @@ The following parameters can be used with the executable
 
 
 
-# HVR Example
-In working in conjuction with HVR to integrate their CDC platform to Talend Cloud we utilized the following script. The tcli executable
-and log4j.properties was placed in the <$HVR_HOME>\lib\agent directory allow with the following script
 
-`IF "%1%" == "integ_end" (
-  tcli -t <TOKEN> -r AWS_USA_EAST -j %4% -w
- )`
+`
+  tcli -t <TOKEN> -r AWS_USA_EAST -j myjob -e DEV -cv connection=conn1;state=GA -w
+ `
 
-### HVR Agent Plugin
-In HVR we use the Agent Plugin to call our script. In this example we named the script `callTalendCloud.bat`
-
-![](hvr_agent_plugin.jpg)
-
-The value in the `UserArgument` is referenced in the above code by the `%4%`. This way a user
-can pass in the name of the Talend Cloud Job and it will be executed in this instance with the HVR
-process is at `integ_end`
 
 
 
