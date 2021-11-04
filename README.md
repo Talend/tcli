@@ -7,6 +7,7 @@ The executables in this repository where built to support the following systems
 * Mac <tcli>
 * Linux/Unix <tcli>
 
+The prebuilt executables are expecting a Java Runtime in the subfolder jre/ relative to the executable path.
 The log4j.properties file needs be downloaded as well and placed in the same directory
 as the executable that you choose.
 
